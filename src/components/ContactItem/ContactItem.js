@@ -13,13 +13,11 @@ const ContactItem = function(props)
     const updated = (ev) => {
         const id = ev.target.value;
 
-        console.log(document.getElementById('fName').textContent)
-
         const obj = {
-            fName: document.getElementById('fName').textContent,
-            lName: document.getElementById('lName').textContent,
-            email: document.getElementById('email').textContent,
-            phone: document.getElementById('phone').textContent
+            fName: document.getElementById('firstName').innerText,
+            lName: document.getElementById('lastName').innerText,
+            email: document.getElementById('myEmail').innerText,
+            phone: document.getElementById('phoneNum').innerText
         }
 
         fetch(`http://localhost:8000/contacts/${id}`, 
@@ -36,10 +34,10 @@ const ContactItem = function(props)
     return(
         <div style={{border: "1px solid black"}}>
             <img src = {props.img} style = {{width: "30%", height: "250px"}}></img>
-            <p contentEditable = {true} name = "fName">{props.fname}</p>
-            <p contentEditable = {true} name = "lName">{props.lname}</p>
-            <p contentEditable = {true} name = "email">{props.email}</p>
-            <p contentEditable = {true} name = "phoneNum">{props.phoneNum}</p>
+            <p contentEditable = {true} id = "firstName">{props.fname}</p>
+            <p contentEditable = {true} id = "lastName">{props.lname}</p>
+            <p contentEditable = {true} id = "myEmail">{props.email}</p>
+            <p contentEditable = {true} id = "phoneNum">{props.phoneNum}</p>
             <button value = {props.id} onClick = {updated}>Update</button>
             <button value = {props.id} onClick = {deleted}>Delete</button>
         </div>

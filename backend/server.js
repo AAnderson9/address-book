@@ -1,11 +1,11 @@
 const express = require('express');
 const Database = require('better-sqlite3')
 const cors = require('cors');
-const multer = require("multer");
+const bodyParser = require('body-parser');
 
 const app = express();
+const jsonParser = bodyParser.json();
 app.options('*',cors());
-upload = multer();
 
 const db = new Database('contacts.db');
 
@@ -25,8 +25,8 @@ app.get('/contacts', (req,res) => {
     res.end(JSON.stringify(arrOutput));
 })
 
-//add a contact - error coming from line 33
-app.post('/contact', (req,res) => {
+//add a contact
+app.post('/contact', jsonParser, (req,res) => {
     res.setHeader("Access-Control-Allow-Origin",'*');
     const sql = "INSERT INTO contacts(img, fName, lName, email, phoneNum) VALUES (?,?,?,?,?)";
     const statement = db.prepare(sql);
@@ -43,8 +43,8 @@ app.delete('/contacts/:id', (req,res) => {
     res.end()
 })
 
-//update contact - error coming from line 51
-app.put('/contacts/:id', (req,res) => {
+//update contact 
+app.put('/contacts/:id', jsonParser, (req,res) => {
     res.setHeader("Access-Control-Allow-Origin",'*');
     const sql = "UPDATE contacts SET fName = ?, lName = ?, email = ?, phoneNum = ? WHERE id = ?";
     const statement = db.prepare(sql);

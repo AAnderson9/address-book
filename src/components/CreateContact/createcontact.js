@@ -4,9 +4,8 @@ const CreateContact = function(props)
     const submitted = (ev) => {
         ev.preventDefault();
 
-
         const obj = {
-            image: document.getElementById('image').files[0].path,
+            image: document.getElementById('image').value,
             fName: document.getElementById('fName').value,
             lName: document.getElementById('lName').value,
             email: document.getElementById('email').value,
@@ -25,10 +24,10 @@ const CreateContact = function(props)
     }
 
     return(
-        <form id = 'createForm' style={{display: "flex", flexDirection: 'column'}} onSubmit = {submitted}>
-            <label htmlFor="img" style={{alignSelf:"start"}}>Select a contact image: </label>
-            <input id = "image" name = "image" type = "file" accept="image/*" required></input>
-            <label htmlFor="fName" style={{alignSelf:"start"}}>Please fill out the following </label>
+        <form id = 'createForm' style={{display: "flex", flexDirection: 'column', paddingBottom: "30px",justifyContent: "center",width:"60%", marginLeft:"auto",marginRight:"auto"}} onSubmit = {submitted}>
+            <label htmlFor="img" >Select a contact image: </label>
+            <input id = "image" name = "image" type = "file" accept="image/*" style={{alignSelf:"center"}} required></input>
+            <label htmlFor="fName" >Please fill out the following </label>
             <input id = "fName" name = "fName" type = "text" placeholder="First Name" required></input>
             <input id = "lName" name = "lName" type = "text" placeholder="Last Name" required></input>
             <input id = "email" name = "email" type = "email" placeholder="Email" required></input>

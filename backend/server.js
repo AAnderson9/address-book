@@ -9,6 +9,7 @@ upload = multer();
 
 const db = new Database('contacts.db');
 
+
 //display list of contacts
 app.get('/contacts', (req,res) => {
     res.setHeader("Access-Control-Allow-Origin",'*');

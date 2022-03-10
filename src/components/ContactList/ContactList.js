@@ -6,7 +6,7 @@ const ContactList = function(props)
         <div>
             {
                 props.contactData.map(contact => {
-                    return <ContactItem name = {`${contact.fname} ${contact.lname}`} img = {contact.img} email = {contact.email} phoneNum = {contact.phone}/>
+                    return <ContactItem fname = {contact.fName} lname = {contact.lName} img = {contact.img} email = {contact.email} phoneNum = {contact.phoneNum} id = {contact.id}/>
                 })
             }
         </div>

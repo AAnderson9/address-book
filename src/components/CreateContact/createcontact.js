@@ -1,7 +1,19 @@
 const CreateContact = function(props)
 {
+
+    const submitted = (ev) => {
+        ev.preventDefault();
+        const fd = new FormData(document.getElementById('createForm'));
+
+        fetch('http://localhost:8000/contact',
+        {
+            method: 'POST',
+            body: fd
+        })
+    }
+
     return(
-        <form style={{display: "flex", flexDirection: 'column'}}>
+        <form id = 'createForm' style={{display: "flex", flexDirection: 'column'}}>
             <label htmlFor="img" style={{alignSelf:"start"}}>Select a contact image: </label>
             <input id = "img" name = "img" type = "file" accept="image/*" required></input>
             <label htmlFor="fName" style={{alignSelf:"start"}}>Please fill out the following </label>

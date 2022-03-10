@@ -3,7 +3,8 @@ const SearchAndFilter = function(props)
     return(
         <form>
             <input type="text" placeholder="Search"></input>
-            <select>
+            <label htmlFor="list">Filter:</label>
+            <select id = "list">
                 <option value="fName">First Name</option>
                 <option value="fName">Last Name</option>
             </select>

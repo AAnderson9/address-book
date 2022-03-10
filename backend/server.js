@@ -34,6 +34,23 @@ app.post('/contact', (req,res) => {
     res.end();
 })
 
+//delete a contact
+app.delete('/contacts/:id', (req,res) => {
+    res.setHeader("Access-Control-Allow-Origin", req.headers.origin);
+    const sql = "DELETE FROM contacts WHERE id =?";
+    const statement = db.prepare(sql);
+    statement.run([req.params.id]);
+    res.end()
+})
+
+app.put('/contacts/:id', (req,res) => {
+    res.setHeader("Access-Control-Allow-Origin",'*');
+    const sql = "UPDATE contacts SET fName = ?, lName = ?, email = ?, phoneNum = ? WHERE id = ?";
+    const statement = db.prepare(sql);
+    statement.run([req.body.fName,req.body.lName,req.body.email,req.body.phone,req.params.id]);
+    res.end();
+})
+
 
 
 

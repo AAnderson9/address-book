@@ -19,7 +19,6 @@ const CreateContact = function(props)
             headers: {
                 "Content-Type": "application/json; charset=UTF-8"
             }
-            
         })
     }
 

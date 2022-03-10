@@ -13,6 +13,8 @@ const ContactItem = function(props)
     const updated = (ev) => {
         const id = ev.target.value;
 
+        console.log(document.getElementById('fName').textContent)
+
         const obj = {
             fName: document.getElementById('fName').textContent,
             lName: document.getElementById('lName').textContent,
@@ -20,7 +22,7 @@ const ContactItem = function(props)
             phone: document.getElementById('phone').textContent
         }
 
-        fetch(`http://localhost:8000/contacts/${id}/${obj.fName}/${obj.lName}/${obj.email}/${obj.phone}`, 
+        fetch(`http://localhost:8000/contacts/${id}`, 
         {
             method: 'PUT',
             body: JSON.stringify(obj),
@@ -34,10 +36,10 @@ const ContactItem = function(props)
     return(
         <div style={{border: "1px solid black"}}>
             <img src = {props.img} style = {{width: "30%", height: "250px"}}></img>
-            <p contentEditable = {true}>{props.fname}</p>
-            <p contentEditable = {true}>{props.lname}</p>
-            <p contentEditable = {true}>{props.email}</p>
-            <p contentEditable = {true}>{props.phoneNum}</p>
+            <p contentEditable = {true} name = "fName">{props.fname}</p>
+            <p contentEditable = {true} name = "lName">{props.lname}</p>
+            <p contentEditable = {true} name = "email">{props.email}</p>
+            <p contentEditable = {true} name = "phoneNum">{props.phoneNum}</p>
             <button value = {props.id} onClick = {updated}>Update</button>
             <button value = {props.id} onClick = {deleted}>Delete</button>
         </div>

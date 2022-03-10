@@ -3,7 +3,6 @@ import './App.css';
 
 import ContactList from './components/ContactList/contactlist'
 import CreateContact from './components/CreateContact/createcontact';
-import SearchAndFilter from './components/SearchAndFilter/searchandfilter';
 
 function App() {
 
@@ -19,7 +18,6 @@ function App() {
   return (
     <div className="App">
         <CreateContact/>
-        <SearchAndFilter/>
         <ContactList contactData = {data}/>
     </div>
   );

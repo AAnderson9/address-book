@@ -25,12 +25,12 @@ app.get('/contacts', (req,res) => {
     res.end(JSON.stringify(arrOutput));
 })
 
-//add a contact
+//add a contact - error coming from line 33
 app.post('/contact', (req,res) => {
     res.setHeader("Access-Control-Allow-Origin",'*');
     const sql = "INSERT INTO contacts(img, fName, lName, email, phoneNum) VALUES (?,?,?,?,?)";
     const statement = db.prepare(sql);
-    statement.run(req.body.img,req.body.fName,req.body.lName,req.body.email,req.body.phone);
+    statement.run([req.body.image,req.body.fName,req.body.lName,req.body.email,req.body.phone]);
     res.end();
 })
 
@@ -43,19 +43,14 @@ app.delete('/contacts/:id', (req,res) => {
     res.end()
 })
 
-//update contact
+//update contact - error coming from line 51
 app.put('/contacts/:id', (req,res) => {
     res.setHeader("Access-Control-Allow-Origin",'*');
     const sql = "UPDATE contacts SET fName = ?, lName = ?, email = ?, phoneNum = ? WHERE id = ?";
     const statement = db.prepare(sql);
-    statement.run(req.params.fName,req.params.lName,req.params.email,req.params.phone,req.params.id);
+    statement.run([req.body.fName,req.body.lName,req.body.email,req.body.phone,req.params.id]);
     res.end();
 })
-
-
-
-
-
 
 
 

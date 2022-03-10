@@ -4,10 +4,9 @@ const CreateContact = function(props)
     const submitted = (ev) => {
         ev.preventDefault();
 
-        console.log(document.getElementById('image').value)
 
         const obj = {
-            img: document.getElementById('image').files[0].path,
+            image: document.getElementById('image').files[0].path,
             fName: document.getElementById('fName').value,
             lName: document.getElementById('lName').value,
             email: document.getElementById('email').value,

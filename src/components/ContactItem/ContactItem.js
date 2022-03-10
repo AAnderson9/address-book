@@ -20,7 +20,7 @@ const ContactItem = function(props)
             phone: document.getElementById('phone').textContent
         }
 
-        fetch(`http://localhost:8000/contacts/${id}`, 
+        fetch(`http://localhost:8000/contacts/${id}/${obj.fName}/${obj.lName}/${obj.email}/${obj.phone}`, 
         {
             method: 'PUT',
             body: JSON.stringify(obj),

@@ -3,7 +3,7 @@ import './App.css';
 
 import ContactList from './components/ContactList/contactlist'
 import CreateContact from './components/CreateContact/createcontact';
-import SearchAndFilter from './SearchAndFilter/searchandfilter';
+import SearchAndFilter from './components/SearchAndFilter/searchandfilter';
 
 function App() {
 

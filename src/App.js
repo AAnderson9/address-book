@@ -17,6 +17,7 @@ function App() {
 
   return (
     <div className="App">
+        <header style={{padding:"20px", fontWeight: "bold", fontSize: "50px"}}>CONTACTS</header>
         <CreateContact/>
         <ContactList contactData = {data}/>
     </div>

@@ -32,7 +32,7 @@ const CreateContact = function(props)
             <input id = "lName" name = "lName" type = "text" placeholder="Last Name" required></input>
             <input id = "email" name = "email" type = "email" placeholder="Email" required></input>
             <input id = "phone" name = "phone" type = "tel" placeholder="Phone Number (XXX-XXX-XXXX)" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required></input>
-            <button type="submit">Create</button>
+            <button type="submit">Create Contact</button>
         </form>
     )
 
